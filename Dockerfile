@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install python3.6 python3.6-dev python3-pip librocksdb-dev libsnappy-dev libbz2-dev zlib1g-dev
 RUN python3.6 -mpip install -U pip
-RUN python3.6 -mpip install -U asyncio pylru aiohttp pyconfig pyrocksdb
+RUN python3.6 -mpip install -U asyncio pylru aiohttp pyconfig pyrocksdb x11_hash
 RUN rm -fr /var/cache/apt/*
 
 RUN echo '* soft nofile 40000' >> /etc/security/limits.conf
