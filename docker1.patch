@@ -1,0 +1,18 @@
+diff --git a/electrumx_server.py b/electrumx_server.py
+index 695924d..356c9a8 100755
+--- a/electrumx_server.py
++++ b/electrumx_server.py
+@@ -32,9 +32,10 @@ def main_loop():
+     if sys.version_info < (3, 5, 3):
+         raise RuntimeError('Python >= 3.5.3 is required to run ElectrumX')
+ 
+-    if os.geteuid() == 0:
+-        raise RuntimeError('DO NOT RUN AS ROOT! Create an unpriveleged user '
+-                           'account and use that')
++    # quell nanny check, we're running in Docker
++    # if os.geteuid() == 0:
++    #     raise RuntimeError('DO NOT RUN AS ROOT! Create an unpriveleged user '
++    #                        'account and use that')
+ 
+     loop = asyncio.get_event_loop()
+     # loop.set_debug(True)
